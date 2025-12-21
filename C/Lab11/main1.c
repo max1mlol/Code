@@ -13,58 +13,65 @@ int main() {
 
 MENU:
     printf("\n===== STUDENT SYSTEM =====\n");
-    printf("1. Buh oyutan hevleh\n");
-    printf("2. Ner-eer hailt\n");
-    printf("3. ID-gaar hailt\n");
-    printf("4. Ner-eer erembeleh\n");
-    printf("5. ID-gaar erembeleh\n");
-    printf("6. GPA-gaar erembeleh\n");
-    printf("7. Garah\n");
-    printf("Songolt: ");
+    printf("1. Print student info\n");
+    printf("2. Search by Name\n");
+    printf("3. Search by ID\n");
+    printf("4. Sort by Name\n");
+    printf("5. Sort by ID\n");
+    printf("6. Sort by GPA\n");
+    printf("7. Exit\n");
+    printf("Selected: ");
     scanf("%d", &idx);
 
     if (idx == 1) {
         printStudents(a, n);
     } 
-    else if (idx == 2) {
+    else if (idx == 2){
         char name[30];
         printf("Ner oruul: ");
         scanf("%s", name);
         int idx = searchByName(a, n, name);
-        if (idx != -1)
+        if (idx != -1){
             printf("Oldson: %s %d %.2f\n", a[idx].name, a[idx].id, a[idx].gpa);
-        else
+        }
+        else{
             printf("Oyutan oldsongui\n");
+
+        }
     } 
-    else if (idx == 3) {
+    else if (idx == 3){
         int id;
         printf("ID oruul: ");
         scanf("%d", &id);
         int idx = searchById(a, n, id);
-        if (idx != -1)
+        if (idx != -1){
             printf("Oldson: %s %d %.2f\n", a[idx].name, a[idx].id, a[idx].gpa);
-        else
+
+        }
+        else{
             printf("Oyutan oldsongui\n");
+
+        }
     }
-    else if (idx == 4) {
+    else if (idx == 4){
         sortByName(a, n);
         printf("\nNer-eer eremblegdlee.\n");
         printStudents(a, n);
     }
-    else if (idx == 5) {
+    else if (idx == 5){
         sortById(a, n);
         printf("\nID-gaar eremblegdlee.\n");
         printStudents(a, n);
     }
-    else if (idx == 6) {
+    else if (idx == 6){
         sortByGPA(a, n);
         printf("\nGPA-gaar eremblegdlee.\n");
         printStudents(a, n);
     }
-    else if (idx == 7) {
+    else if (idx == 7){
         return 0;
     }
-    else {
+    else{
         printf("Buruu songolt!\n");
     }
 

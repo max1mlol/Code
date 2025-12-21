@@ -15,10 +15,14 @@ int main(){
     scanf("%d", &s);
 
     int idx = searchA(array, sz, s);
-    if (idx != -1)
+    if (idx != -1){
         printf(" haisan elementiin index: %d\n", idx);
-    else
+
+    }
+    else{
         printf(" element oldsongui\n");
+
+    }
 
     sortA(array, sz);
     printf("eremblegdsnii daraa:\n");
