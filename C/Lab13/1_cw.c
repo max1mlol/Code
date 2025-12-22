@@ -6,8 +6,8 @@ int max_integers(int count, ...) { //huvisah argument
         return INT_MIN; //hamgiin baga utgiig butsaana
     }
     va_list args;
-    va_start(args, count); //ehni vaarg ru args zaagchiig chigluuleh
-    int max = va_arg(args, int); //ehni ugta
+    va_start(args, count); //3 ruu ehleed zaana
+    int max = va_arg(args, int); //ehni ugta, int turliin utga unshina
     for(int i=1;i<count;i++){
         int current = va_arg(args, int);
         if(current > max){
