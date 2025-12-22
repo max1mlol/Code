@@ -19,7 +19,7 @@ void print_matrix(Matrix* m) {
 }
 
 // n_rows x n_cols hemjeetei shine array uusgene. callocoor buh utguudiig 0 bolgono.
-Matrix* make_matrix(int n_rows, int n_cols) {
+Matrix* make_matrix(int n_rows, int n_cols) { //Matrix buttsed sanah oi huvaarilna
     Matrix *matrix = (Matrix*)malloc(sizeof(Matrix));
     matrix->rows = n_rows;
     matrix->cols = n_cols;
@@ -30,7 +30,7 @@ Matrix* make_matrix(int n_rows, int n_cols) {
     return matrix;
 }
 
-Matrix* copy_matrix(double* data, int n_rows, int n_cols) {
+Matrix* copy_matrix(double* data, int n_rows, int n_cols) { //1D array s matrix uusgene
     Matrix *matrix = make_matrix(n_rows, n_cols);
     for (int x = 0; x < n_rows; x++) {
         for (int y = 0; y < n_cols; y++) {
@@ -138,21 +138,21 @@ free(m);
 
 }
 int main(void) {
-
+    //2x2 hemjeetei matrix uusgeh
     Matrix* r1;
     Matrix* m1 = make_matrix(2, 2);
-    get_matrix(m1);
+    get_matrix(m1); //hereglegchees utga avah
     Matrix* m2 = make_matrix(2, 2);
     get_matrix(m2);
     print_matrix(m1);
     print_matrix(m2);
 
-    Matrix* (*pf)(Matrix* a, Matrix* b);
+    Matrix* (*pf)(Matrix* a, Matrix* b); //functionii zaagch todorhoiloh
 
   int c=1;
   while(c!=0){
       printf("1:add, 2:sub, 3:mul, 4: exit\n");
-        scanf("%d",&c);
+        scanf("%d",&c); //ali uildliig guitsetgehiig songoh
         switch(c)
         {
             case 1: pf=add_two_matrix; break;
@@ -160,7 +160,7 @@ int main(void) {
             case 3: pf=mul_two_matrix; break;
             default: return 0;
         }
-    r1 = pf(m1,m2);
+    r1 = pf(m1,m2); //uildliig guitsetgeh
     print_matrix(r1);
   }
 
