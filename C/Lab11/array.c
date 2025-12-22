@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 int* createArray(int n){
-    return (int*)malloc(n * sizeof(int));
+    return (int*)malloc(n * sizeof(int)); //sanah oi huvaarilalt
 }
 
-void read(int a[], int n){
+void read(int a[], int n){ //garaar orulsn utga huleen avna
     for(int i = 0; i < n; i++){
         printf("a[%d] = ", i);
         scanf("%d", &a[i]);
     }
 }
 
-void print(int a[], int n){
+void print(int a[], int n){ //utguudiig hevleh
     for(int i = 0; i < n; i++){
         printf("%d ", a[i]);
 
@@ -20,11 +20,11 @@ void print(int a[], int n){
     printf("\n");
 }
 
-void deleteArray(int *a){
+void deleteArray(int *a){ //sanah oi chuluuluh
     free(a);
 }
 
-int minA(int a[], int n){
+int minA(int a[], int n){ //hamgiin baga utga
     int min = a[0];
     for(int i = 1; i < n; i++){
         if(a[i] < min){
@@ -35,7 +35,7 @@ int minA(int a[], int n){
     return min;
 }
 
-int maxA(int a[], int n){
+int maxA(int a[], int n){ //hamgiin ih utga
     int max = a[0];
     for(int i = 1; i < n; i++){
         if(a[i] > max){
@@ -45,7 +45,7 @@ int maxA(int a[], int n){
     return max;
 }
 
-float average(int a[], int n){
+float average(int a[], int n){ //dundaj oloh
     int sum = 0;
     for(int i = 0; i < n; i++){
         sum += a[i];
@@ -54,7 +54,7 @@ float average(int a[], int n){
     return (float)sum / n;
 }
 
-int searchA(int a[], int n, int Svalue){
+int searchA(int a[], int n, int Svalue){ //utga haih
     for(int i = 0; i < n; i++){
         if(a[i] == Svalue){
             return i;
@@ -63,7 +63,7 @@ int searchA(int a[], int n, int Svalue){
     return -1;
 }
 
-void sortA(int a[], int n){
+void sortA(int a[], int n){ //erembeleh
     for(int i = 0; i < n - 1; i++){
         for(int j = i + 1; j < n; j++){
             if(a[i] > a[j]){
