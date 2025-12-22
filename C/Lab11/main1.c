@@ -12,7 +12,7 @@ int main() {
     readStudents(a, n);
 
 MENU:
-    printf("\n===== STUDENT SYSTEM =====\n");
+    printf("\nSTUDENT SYSTEM\n");
     printf("1. Print student info\n");
     printf("2. Search by Name\n");
     printf("3. Search by ID\n");
@@ -28,14 +28,14 @@ MENU:
     } 
     else if (idx == 2){
         char name[30];
-        printf("Ner oruul: ");
+        printf("Enter name: ");
         scanf("%s", name);
         int idx = searchByName(a, n, name);
         if (idx != -1){
-            printf("Oldson: %s %d %.2f\n", a[idx].name, a[idx].id, a[idx].gpa);
+            printf("Found: %s %d %.2f\n", a[idx].name, a[idx].id, a[idx].gpa);
         }
         else{
-            printf("Oyutan oldsongui\n");
+            printf("Student not found\n");
 
         }
     } 
@@ -45,34 +45,34 @@ MENU:
         scanf("%d", &id);
         int idx = searchById(a, n, id);
         if (idx != -1){
-            printf("Oldson: %s %d %.2f\n", a[idx].name, a[idx].id, a[idx].gpa);
+            printf("Found: %s %d %.2f\n", a[idx].name, a[idx].id, a[idx].gpa);
 
         }
         else{
-            printf("Oyutan oldsongui\n");
+            printf("Student not found\n");
 
         }
     }
     else if (idx == 4){
         sortByName(a, n);
-        printf("\nNer-eer eremblegdlee.\n");
+        printf("\nName sorted.\n");
         printStudents(a, n);
     }
     else if (idx == 5){
         sortById(a, n);
-        printf("\nID-gaar eremblegdlee.\n");
+        printf("\nID sorted.\n");
         printStudents(a, n);
     }
     else if (idx == 6){
         sortByGPA(a, n);
-        printf("\nGPA-gaar eremblegdlee.\n");
+        printf("\nGPA sorted.\n");
         printStudents(a, n);
     }
     else if (idx == 7){
         return 0;
     }
     else{
-        printf("Buruu songolt!\n");
+        printf("Error!\n");
     }
 
     goto MENU;

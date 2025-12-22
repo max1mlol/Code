@@ -8,7 +8,6 @@ struct Matrix {
 };
 typedef struct Matrix Matrix;
 
-/* Print the matrix to stdout with one decimal place per element. */
 void print_matrix(Matrix* m) {
     if (m == NULL) return;
     for (int x = 0; x < m->rows; x++) {
@@ -31,9 +30,6 @@ Matrix* make_matrix(int n_rows, int n_cols) {
     return matrix;
 }
 
-/* Create a Matrix from a flat double array in row-major order. Useful for
-   tests or initializing from linear buffers. */
-
 Matrix* copy_matrix(double* data, int n_rows, int n_cols) {
     Matrix *matrix = make_matrix(n_rows, n_cols);
     for (int x = 0; x < n_rows; x++) {
@@ -44,7 +40,7 @@ Matrix* copy_matrix(double* data, int n_rows, int n_cols) {
     return matrix;
 }
 
-// stdin-s husneg ruu utguudiig oruulna.
+//husnegt ruu utguudiig oruulna.
 int get_matrix(Matrix* matrix) {
     printf("Enter the matrix elements %dx%d", matrix->rows, matrix->cols);
     printf("\n");

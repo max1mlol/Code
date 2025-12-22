@@ -7,26 +7,27 @@ char *concatenate_strings(int count, ...) {
     if(count <= 0){
         return NULL;
     }
+
     va_list args;
     va_start(args, count);
-    // Calculate total length
+    // Niit urtiig oloh
     size_t total_len = 0;
     for(int i=0; i<count; i++){
         total_len += strlen(va_arg(args, char *));
     }
     va_end(args);
 
-    // Allocate memory for concatenated string
-    char *result = (char *)malloc(total_len + 1);
+    // sanah oi huvaarilj uguh
+    char *result = (char *)malloc(total_len + 1); //\0-d bas sanah oi ugn
     if(!result){
         return NULL;
     }
     result[0] = '\0';
 
-    // Concatenate strings
-    va_start(args, count);
+    // stringuudiig niiluuleh
+    va_start(args, count); // dahij ehnees ni ehluuleh
     for(int i=0 ;i<count; i++){
-        strcat(result, va_arg(args, char *));
+        strcat(result, va_arg(args, char *)); // araas ni zalgah
     }
     va_end(args);
 
