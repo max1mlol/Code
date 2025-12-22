@@ -4,7 +4,7 @@ int main(){
     int *array;
     int sz, s;
     printf("Size of array:\n");
-    scanf("%d", &sz);
+    scanf("%d", &sz);//husnegtiin hemjee asuuh
     array = createArray(sz);
     read(array, sz);
     print(array, sz);
