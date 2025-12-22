@@ -30,3 +30,4 @@ int main(){
     deleteArray(array);
     return 0;
 }
+// gcc "./array.c" ".main.c" -o app
