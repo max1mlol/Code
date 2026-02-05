@@ -2,6 +2,7 @@
 using namespace std;
 int main(){
     int a, b, c;
+    cout<<"3 too oruulna uu: ";
     cin>>a>>b>>c;
     if(a>b){
         if(a>c){
