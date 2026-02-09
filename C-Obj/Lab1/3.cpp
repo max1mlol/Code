@@ -5,5 +5,5 @@ int main(){
     cout<<"Tegsh untsugtiin 2 taliig oruulna uu: ";
     cin>>a>>b;
     s = a*b;
-    cout<<"Tegsh untusgtiin talbai: "<<s<<endl;
+    cout<<"Tegsh untsugtiin talbai: "<<s<<endl;
 }

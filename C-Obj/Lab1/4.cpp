@@ -9,5 +9,5 @@ int main(){
         sum=sum+i;  
     }
     avg = sum/n;
-    cout<<"sum: "<<sum<<" avg: "<<avg<<endl;
+    cout<<n<<" hurtelh toonii niilber: "<<sum<<endl<<n<<" hurtelh toonii dundaj: "<<avg<<endl;
 }

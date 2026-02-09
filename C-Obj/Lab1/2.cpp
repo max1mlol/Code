@@ -1,9 +1,10 @@
 #include<iostream>
+#include<cmath>
 using namespace std;
 int main(){
-    int r, s;
+    double r, s;
     cout<<"Toirgiin radius oruulna uu: ";
     cin>>r;
-    s = r*r*3.14;
-    cout<<s<<endl;
+    s = r*r*M_PI;
+    cout<<"Toirgiin talbai: "<<s<<endl;
 }

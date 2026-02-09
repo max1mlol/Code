@@ -2,12 +2,14 @@
 using namespace std;
 int main(){
     int n, i, sum=0, mul=1;
-    cout<<"Too oruulna uu: ";
+    cout<<"Heden too oruulah aa bichne uu: ";
     cin>>n;
-    for(i=1;i<n+1;i++){
-        sum=sum+i;
-        mul=mul*i;
+    cout<<"Toonuudaa oruulna uu: ";
+    int A[n];
+    for(i=0;i<n;i++){
+        cin>>A[i];
+        sum += A[i];
+        mul *= A[i];
     }
-    cout<<"sum: "<<sum<<" mul: "<<mul<<endl;
-
+    cout<<n<<" toonii niilber: "<<sum<<endl<<n<<" toonii urjver: "<<mul<<endl;
 }

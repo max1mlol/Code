@@ -5,7 +5,7 @@ int main(){
     cout<<"Heden too oruulah aa bichne uu: ";
     cin>>n;
     int A[n];
-    cout<<"Toonuudaa bichne uu: ";
+    cout<<"Toonuudaa oruulna uu: ";
     for(i=0;i<n;i++){
         cin>>A[i];
     }
