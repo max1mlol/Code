@@ -4,11 +4,6 @@
 # annual_salary - jiliin tsalin
 # portion_saved - sar bur tsalingasa uridchilgaand uguh
 
-# input(annual_salary)
-# input(portion_saved)
-# input(total_cost)
-# print()
-# print()
 annual_salary = float(input("Jiliin tsalingaa oruulna uu: "))
 portion_saved = float(input("Tsalingaasaa hadgalah huvi (aravtiin butarhaigar): "))
 total_cost = float(input("Muruudliin baishinginha uniig oruulna uu: "))

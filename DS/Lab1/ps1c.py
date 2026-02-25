@@ -34,4 +34,3 @@ else:
             low = mid + 1
     print("Tsalingaasaa hadgalah tohiromjtoi huvi: ", min)
     print("Hoyortin hailtiin alham: ", steps)
-
