@@ -13,7 +13,7 @@ int main(){
     cout<<"b dahi toog oruulna uu: ";
     cin>>b;
     cout<<"Solihiin umnu a = "<<a<<", b = "<<b<<endl;
-    swap(a, b);
+    swap(&a, &b);
     cout<<"Solisonii daraa a = "<<a<<", b = "<<b<<endl;
 
 }
