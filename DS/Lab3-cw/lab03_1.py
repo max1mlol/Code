@@ -1,6 +1,7 @@
 import json
+# Багш бүрийн заадаг хичээлийг тоолох
 # JSON файлаас мэдээлэл авах
-with open(".\Lab3-cw\schedule.json", "r", encoding='utf-8') as file:
+with open("schedule.json", "r", encoding='utf-8') as file:
     data = json.load(file)
 
 # Багш нарыг тоолоход хэрэглэх хоосон dictionary
