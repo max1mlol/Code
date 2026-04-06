@@ -51,7 +51,7 @@ public:
     }
     double perimeter() const override {
         return 3 * side; // Тэгш өнцөгт гурвалжны периметр
-    }   
+    }
 
 void showInfo() const override {
     TwoDshape::showInfo();
@@ -60,11 +60,38 @@ void showInfo() const override {
     cout << "Dood oroinuud: (" << bx1 << ", " << by1 << ") and (" << bx2 << ", " << by2 << ")" << endl;
     cout << "Talbai: " << area() << endl;
     cout << "Perimeter: " << perimeter() << endl;
+    cout << "----------------------------------------------------" << endl;
 }
 };
+class Circle : public TwoDshape {
+    private:
+    double ox, oy;      //Тойргийн төвийн координатууд
+    double radius;       // Тойргийн тал
+public:
+    Circle(string n, string c, double x, double y, double r)
+    : TwoDshape(n, c), ox(x), oy(y), radius(r) {
+    }
+    double area() const override {
+        return PI * radius * radius; // Тойргийн талбай
+    }
+    double perimeter() const override {
+        return 2 * PI * radius; // Тойргийн периметр
+    }   
+void showInfo() const override {
+    TwoDshape::showInfo();
+    cout << "Turul: Toirog" << endl;
+    cout << "Toirgiin tuv: (" << ox << ", " << oy << ")" << endl;
+    cout << "Radius: " << radius << endl;
+    cout << "Talbai: " << area() << endl;
+    cout << "Perimeter: " << perimeter() << endl;
+    cout << "----------------------------------------------------" << endl;
 
+}
+};
 int main() {
     triangle t("Triangle", "Red", 0.0, 0.0, 4.0); // Гурвалжны нэр, өнгө, дээд оройн координатууд, талын урт
     t.showInfo();
+    Circle c("Circle", "Black", 0.0, 0.0, 1.0); // Тойргийн нэр, өнгө, төвийн координатууд, радиус
+    c.showInfo();
     return 0;
 }
