@@ -99,7 +99,7 @@ private:
 
 public:
     // leftTop = зүүн дээд орой
-    Square(string n, double x, double y, double s) : TwoDshape(n){
+    Square(string n, double x, double y, double s) : TwoDshape(n, "White"){
         side = s;
 
         // Зүүн дээд орой
@@ -133,6 +133,7 @@ void showInfo() const override {
     }
     cout << "Area: " << area() << endl;
     cout << "Perimeter: " << perimeter() << endl;
+    cout << "----------------------------------------------------" << endl;
 }
 };
 int main() {
