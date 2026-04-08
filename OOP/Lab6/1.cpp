@@ -88,10 +88,60 @@ void showInfo() const override {
 
 }
 };
+// Цэгийн бүтэц
+struct Point {
+    double x, y;
+};
+class Square : public TwoDshape {
+private:
+    Point vertices[4];
+    double side;
+
+public:
+    // leftTop = зүүн дээд орой
+    Square(string n, double x, double y, double s) : TwoDshape(n){
+        side = s;
+
+        // Зүүн дээд орой
+        vertices[0] = {x, y};
+
+        // Баруун дээд
+        vertices[1] = {x + side, y};
+
+        // Баруун доод
+        vertices[2] = {x + side, y - side};
+
+        // Зүүн доод
+        vertices[3] = {x, y - side};
+    }
+
+    double area() const override {
+        return side * side;
+    }
+
+    double perimeter() const override {
+        return 4 * side;
+    }
+
+void showInfo() const override {
+    cout << "Square" << endl;
+    cout << "Name: " << name << endl;
+    cout << "Side: " << side << endl;
+    cout << "Vertices:" << endl;
+    for (int i = 0; i < 4; i++) {
+        cout << "V" << i + 1 << ": (" << vertices[i].x << ", " << vertices[i].y << ")" << endl;
+    }
+    cout << "Area: " << area() << endl;
+    cout << "Perimeter: " << perimeter() << endl;
+}
+};
 int main() {
     triangle t("Triangle", "Red", 0.0, 0.0, 4.0); // Гурвалжны нэр, өнгө, дээд оройн координатууд, талын урт
     t.showInfo();
     Circle c("Circle", "Black", 0.0, 0.0, 1.0); // Тойргийн нэр, өнгө, төвийн координатууд, радиус
     c.showInfo();
+    Square s("Square1", 0, 10, 4);
+    s.showInfo();
+    cout << endl;
     return 0;
 }
