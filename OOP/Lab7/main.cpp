@@ -55,9 +55,6 @@ public:
 
 void showInfo() const override {
     TwoDshape::showInfo();
-    cout << "Turul: Gurwaljin" << endl;
-    cout << "Deed oroi: (" << tx << ", " << ty << ")" << endl;
-    cout << "Dood oroinuud: (" << bx1 << ", " << by1 << ") and (" << bx2 << ", " << by2 << ")" << endl;
     cout << "Talbai: " << area() << endl;
     cout << "Perimeter: " << perimeter() << endl;
     cout << "----------------------------------------------------" << endl;
@@ -79,9 +76,6 @@ public:
     }   
 void showInfo() const override {
     TwoDshape::showInfo();
-    cout << "Turul: Toirog" << endl;
-    cout << "Toirgiin tuv: (" << ox << ", " << oy << ")" << endl;
-    cout << "Radius: " << radius << endl;
     cout << "Talbai: " << area() << endl;
     cout << "Perimeter: " << perimeter() << endl;
     cout << "----------------------------------------------------" << endl;
@@ -124,13 +118,7 @@ public:
     }
 
 void showInfo() const override {
-    cout << "Square" << endl;
-    cout << "Name: " << name << endl;
-    cout << "Side: " << side << endl;
-    cout << "Vertices:" << endl;
-    for (int i = 0; i < 4; i++) {
-        cout << "V" << i + 1 << ": (" << vertices[i].x << ", " << vertices[i].y << ")" << endl;
-    }
+    TwoDshape::showInfo();
     cout << "Area: " << area() << endl;
     cout << "Perimeter: " << perimeter() << endl;
     cout << "----------------------------------------------------" << endl;
@@ -155,12 +143,12 @@ int main() {
     Shapes[0] = new triangle("Triangle", "Red", 0.0, 0.0, 4.0);
     Shapes[1] = new Circle("Circle", "Black", 0.0, 0.0, 1.0);
     Shapes[2] = new Square("Square", 0, 10, 4);
-    cout << "===EREMBELEHIIN UMNU===" << endl;
+    cout << "============EREMBELEHIIN UMNU============" << endl;
     for(int i=0; i<3; i++){
         Shapes[i]->showInfo();
     }
     sort(Shapes, 3);
-    cout << "===EREMBELSNII DARAA===" << endl;
+    cout << "============EREMBELSNII DARAA============" << endl;
     for(int i=0; i<3; i++){
         Shapes[i]->showInfo();
     }
