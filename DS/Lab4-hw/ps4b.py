@@ -27,7 +27,7 @@ def dp_make_weight(egg_weights, target_weight, memo={}):
     if (egg_weights, target_weight) in memo:
         return memo[(egg_weights, target_weight)]
     # Try each egg weight and take the option that uses fewwest eggs
-    best = float('inf')
+    best = target_weight + 1
     for w in egg_weights:
         if w <= target_weight:
             result = dp_make_weight(egg_weights, target_weight - w, memo) + 1
