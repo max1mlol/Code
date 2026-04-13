@@ -37,7 +37,6 @@ def dp_make_weight(egg_weights, target_weight, memo={}):
     return best
 
 
-
 # EXAMPLE TESTING CODE, feel free to add more if you'd like
 if __name__ == "__main__":
     egg_weights = (1, 5, 10, 25)
