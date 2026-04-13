@@ -22,8 +22,20 @@ def dp_make_weight(egg_weights, target_weight, memo={}):
 
     Returns: int, smallest number of eggs needed to make target weight
     """
-    # TODO: Your code here
-    pass
+    if target_weight == 0:
+        return 0
+    if (egg_weights, target_weight) in memo:
+        return memo[(egg_weights, target_weight)]
+    # Try each egg weight and take the option that uses fewwest eggs
+    best = float('inf')
+    for w in egg_weights:
+        if w <= target_weight:
+            result = dp_make_weight(egg_weights, target_weight - w, memo) + 1
+            if result < best:
+                best = result
+    memo[(egg_weights, target_weight)] = best
+    return best
+
 
 
 # EXAMPLE TESTING CODE, feel free to add more if you'd like
@@ -32,6 +44,6 @@ if __name__ == "__main__":
     n = 99
     print("Egg weights = (1, 5, 10, 25)")
     print("n = 99")
-    print("Expected ouput: 9 (3 * 25 + 2 * 10 + 4 * 1 = 99)")
+    print("Expected output: 9 (3 * 25 + 2 * 10 + 4 * 1 = 99)")
     print("Actual output:", dp_make_weight(egg_weights, n))
     print()

@@ -6,7 +6,7 @@
 
 import time
 
-from ps1_partition import get_partitions
+from ps4_partition import get_partitions
 
 # ================================
 # Part A: Transporting Space Cows
@@ -26,8 +26,14 @@ def load_cows(filename):
     Returns:
     a dictionary of cow name (string), weight (int) pairs
     """
-    # TODO: Your code here
-    pass
+    cows = {}
+    f = open('ps4_cow_data.txt', 'r')
+    for line in f:
+        line = line.strip()
+        parts = line.split(',')
+        cows[parts[0]] = int(parts[1])
+    f.close()
+    return cows
 
 
 # Problem 2
@@ -53,8 +59,22 @@ def greedy_cow_transport(cows, limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    trips = []
+    sorted_cows = sorted(cows, key=cows.__getitem__, reverse=True)
+    remaining = list(sorted_cows)
+    while len(remaining) > 0:
+        current_trip = []
+        left_over = []
+        total = 0
+        for name in remaining:
+            if total + cows[name] <= limit:
+                current_trip.append(name)
+                total += cows[name]
+            else:
+                left_over.append(name)
+        trips.append(current_trip)
+        remaining = left_over
+    return trips
 
 
 # Problem 3
@@ -79,8 +99,22 @@ def brute_force_cow_transport(cows, limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    cow_names = list(cows.keys())
+    best = None
+    for partition in get_partitions(cow_names):
+        valid = True
+        for trip in partition:
+            trip_weight = 0
+            for cow in trip:
+                trip_weight += cows[cow]
+            if trip_weight > limit:
+                valid = False
+                break
+        if valid:
+            if best == None or len(partition) < len(best):
+                best = partition
+    return best
+    
 
 
 # Problem 4
@@ -97,5 +131,19 @@ def compare_cow_transport_algorithms():
     Returns:
     Does not return anything.
     """
-    # TODO: Your code here
-    pass
+    cows = load_cows('ps4_cow_data.txt')
+
+    start = time.time()
+    greedy_result = greedy_cow_transport(cows)
+    end = time.time()
+    print('greedy number of trips: ', len(greedy_result))
+    print('greedy time: ', f"{end-start:.5f}")
+
+    start = time.time()
+    brute_result = brute_force_cow_transport(cows)
+    end = time.time()
+    print('brute force number of trips: ', len(brute_result))
+    print('brute time: ', f"{end-start:.5f}")
+
+if __name__ == "__main__":
+    compare_cow_transport_algorithms()
