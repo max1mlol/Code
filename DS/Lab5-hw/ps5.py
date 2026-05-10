@@ -21,9 +21,9 @@ from graph import Digraph, Node, WeightedEdge
 # represented?
 #
 # Answer:
-# Nodes = барилгууд (building numbers)
-# Edges = барилга хоорондын зам
-# Distances = edge дотор хадгалагдана (total, outdoor)
+# Nodes нь барилгуудуудыг илтгэнэ
+# Edges нь барилга хоорондын замыг илтгэнэ
+# Хоорондох зай нь edge дотор хадгалагдана
 
 
 # Problem 2b: Implementing load_map
@@ -48,25 +48,26 @@ def load_map(map_filename):
 
     print("Loading map from file...")
 
-    g = Digraph()
-    with open(map_filename, "r") as f:
-        for line in f:
+    digraph = Digraph()
+    with open(map_filename, "r") as map:
+        for line in map:
             src, dest, total_dist, outdoor_dist = line.strip().split()
             src_node = Node(src)
             dest_node = Node(dest)
-            if not g.has_node(src_node):
-                g.add_node(src_node)
-            if not g.has_node(dest_node):
-                g.add_node(dest_node)
+            if not digraph.has_node(src_node):
+                digraph.add_node(src_node)
+            if not digraph.has_node(dest_node):
+                digraph.add_node(dest_node)
             edge = WeightedEdge(src_node, dest_node, int(total_dist), int(outdoor_dist))
-            g.add_edge(edge)
-    return g
+            digraph.add_edge(edge)
+    return digraph
 
 
 # Problem 2c: Testing load_map
 # Include the lines used to test load_map below, but comment them out
-# g = load_map("test_load_map.txt")
-# print(g)
+#
+# digraph = load_map("mit_map.txt")
+# print(digraph)
     
 
 
@@ -77,9 +78,9 @@ def load_map(map_filename):
 # What is the objective function for this problem? What are the constraints?
 #
 # Answer:
-# Objective function: Хамгийн богино замыг олох (shortest path)
-# Constraints: max_total_dist - замын нийт урт энэ хэмжээнээс ихгүй байх
-#              max_dist_outdoors - замын гадаа хэсгийн урт энэ хэмжээнээс ихгүй байх
+# Objective function: Нэг барилгаас нөгөө барилга хоорондох хамгийн богино замыг олох 
+# Constraints: max_total_dist >= замын нийт урт 
+#              max_dist_outdoors >= гаднах замын урт
 
 
 
@@ -135,16 +136,16 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist, best_
         next_node_name = next_node.get_name()
 
         if next_node_name in path_nodes:
-            continue  # skip cycles
+            continue
 
         new_total_dist = path_total_dist + edge.get_total_distance()
         new_outdoor_dist = path_outdoor_dist + edge.get_outdoor_distance()
 
         if new_outdoor_dist > max_dist_outdoors:
-            continue  # skip paths that exceed outdoor distance constraint
+            continue
 
         if best_dist is not None and new_total_dist >= best_dist:
-            continue  # skip paths that are already longer than the best found
+            continue
 
         new_path = (path_nodes + [next_node_name], new_total_dist, new_outdoor_dist)
         result = get_best_path(

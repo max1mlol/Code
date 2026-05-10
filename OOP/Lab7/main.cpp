@@ -141,19 +141,25 @@ void sort(TwoDshape* shapes[], int n) {
 int main() {
     TwoDshape* Shapes[3];
     Shapes[0] = new triangle("Triangle", "Red", 0.0, 0.0, 4.0);
-    Shapes[1] = new Circle("Circle", "Black", 0.0, 0.0, 1.0);
-    Shapes[2] = new Square("Square", 0, 10, 4);
+    Shapes[1] = new triangle("Triangle", "Blue", 1.0, 2.0, 5.0);
+    Shapes[2] = new triangle("Triangle", "Green", 2.0, 3.0, 6.0);
+    Shapes[3] = new Circle("Circle", "Black", 0.0, 0.0, 1.0);
+    Shapes[4] = new Circle("Circle", "Yellow", 1.0, 1.0, 2.0);
+    Shapes[5] = new Circle("Circle", "Purple", 2.0, 2.0, 3.0);
+    Shapes[6] = new Square("Square", 0, 10, 4);
+    Shapes[7] = new Square("Square", 2, 5, 3);
+    Shapes[8] = new Square("Square", 5, 8, 6);
     cout << "============EREMBELEHIIN UMNU============" << endl;
-    for(int i=0; i<3; i++){
+    for(int i=0; i<9; i++){
         Shapes[i]->showInfo();
     }
-    sort(Shapes, 3);
+    sort(Shapes, 9);
     cout << "============EREMBELSNII DARAA============" << endl;
-    for(int i=0; i<3; i++){
+    for(int i=0; i<9; i++){
         Shapes[i]->showInfo();
     }
 
-    for(int i=0; i<3; i++){
+    for(int i=0; i<9; i++){
         delete Shapes[i];
     }
     return 0;
